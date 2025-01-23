@@ -1,0 +1,25 @@
+{
+  "name": "am-react-validation-utils",
+  "version": "1.0.0",
+  "description": "A collection of reusable validation utilities for React applications.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "react",
+    "validation",
+    "validators",
+    "form-validation"
+  ],
+  "author": "Amit Shinde",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
