@@ -1,0 +1,36 @@
+name: Publish to NPM
+
+on:
+  push:
+    branches:
+      - main  # Trigger only when pushing to the main branch
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14' # Ensure it matches your Node.js version
+          cache: 'yarn' # Use Yarn for caching
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: yarn install
+
+      # Step 4: Build the package
+      - name: Build package
+        run: yarn build
+
+      # Step 5: Publish to NPM
+      - name: Publish to NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
